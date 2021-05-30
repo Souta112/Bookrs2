@@ -1,0 +1,13 @@
+<%= render 'layouts/error', model: @user %>
+
+<h1>User info</h1>
+ <%= form_with model: @user,local:true do |f| %>
+  <%= f.label "Name" %><br>
+  <%= f.text_field :name, class:"col-xs-12" %><br>
+
+  <%= f.attachment_field :profile_image %><br>
+
+  <%= f.label "Introduction" %><br>
+  <%= f.text_area :introduction, class:"col-xs-12" %><br>
+  <%= f.submit "Update User", class: "btn btn-secondary" %>
+<% end %>

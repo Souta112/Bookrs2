@@ -1,0 +1,37 @@
+<%= render 'layouts/error', model: book %>
+<div class ="col-md-3">
+<h2>User info</h2>
+<div class = "table">
+ <tbody>
+  <tr>
+ <%= image_tag attachment_url(user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %>
+  </tr>
+ <tr>
+<th>name</th>
+<th><%= user.name %></th>
+</tr>
+
+<tr>
+ <th>intoroduction</th>
+ <th><%= user.introduction%></th>
+</tr>
+</tbody>
+</div>
+
+<%= link_to  "", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+
+<h2>New book</h2>
+<%= form_with model: book,local:true do |f| %>
+ <div class="field">
+  <%= f.label "Title" %><br>
+  <%= f.text_field :title %><br>
+</div>
+
+ <div class="field">
+  <%= f.label "opinion" %><br>
+  <%= f.text_area :body %><br>
+ </div>
+ 
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+  <% end %>
+</div>
