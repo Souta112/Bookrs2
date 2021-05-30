@@ -2,15 +2,13 @@
 <div class ="col-md-3">
 <h2>User info</h2>
 <div class = "table">
+ <%= image_tag attachment_url(user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %><br>
  <tbody>
-  <tr>
- <%= image_tag attachment_url(user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %>
-  </tr>
+  <tr></tr>
  <tr>
 <th>name</th>
-<th><%= user.name %></th>
+<th><%= user.name %></th><br>
 </tr>
-
 <tr>
  <th>intoroduction</th>
  <th><%= user.introduction%></th>
@@ -20,18 +18,19 @@
 
 <%= link_to  "", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
 
+
 <h2>New book</h2>
 <%= form_with model: book,local:true do |f| %>
  <div class="field">
   <%= f.label "Title" %><br>
-  <%= f.text_field :title %><br>
+  <%= f.text_field :title,class: "form form-control" %><br>
 </div>
 
  <div class="field">
   <%= f.label "opinion" %><br>
-  <%= f.text_area :body %><br>
+  <%= f.text_area :body,class: "form form-control" %><br>
  </div>
- 
+
   <%= f.submit 'Create Book', class: "btn btn-success" %>
   <% end %>
 </div>
